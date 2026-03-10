@@ -1,0 +1,39 @@
+import type { JSX } from "react";
+import "../css/MovieCard.css";
+
+interface Movie {
+    title: string, 
+    release_date: string, 
+    url: string, 
+    id: number
+}
+
+interface MovieCardProps {
+    movie: Movie
+}
+
+function MovieCard({movie}: MovieCardProps): JSX.Element {
+
+    function favoriteClick(): void {
+        alert("Clicked");
+    }
+
+    return (
+        <div className="movie-card">
+            <div className="movie-poster">
+                <img src={movie.url} alt={movie.title} />
+                <div className="movie-overlay">
+                    <button className="favorite-btn active" onClick={favoriteClick}>
+                        🤍
+                    </button>
+                </div>
+            </div>
+            <div className="movie-info">
+                <h3>{movie.title}</h3>
+                <p>{movie.release_date}</p>
+            </div>
+        </div>
+    )
+}
+
+export default MovieCard;
