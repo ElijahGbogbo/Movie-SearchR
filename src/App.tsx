@@ -1,9 +1,9 @@
-import "./css/App.css";
-import {Routes, Route} from "react-router-dom";
-import Home from "./pages/Home";
-import NavBar from "./components/NavBar";
-import Favorites from "./pages/Favorites";
-import type { JSX } from "react";
+import './css/App.css'
+import { Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import NavBar from './components/NavBar'
+import Favorites from './pages/Favorites'
+import type { JSX } from 'react'
 
 function App(): JSX.Element {
   return (
@@ -20,4 +20,3 @@ function App(): JSX.Element {
 }
 
 export default App
-
