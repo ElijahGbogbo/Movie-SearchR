@@ -13,7 +13,6 @@ interface MovieCardProps {
 }
 
 function MovieCard({movie}: MovieCardProps): JSX.Element {
-
     function favoriteClick(): void {
         alert("Clicked");
     }
