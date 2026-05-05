@@ -8,3 +8,5 @@ const getPopularMovies = async () => {
     console.log(error)
   }
 }
+
+export default getPopularMovies
