@@ -1,4 +1,3 @@
-
 import api from './services/axiosInstance.ts'
 
 const getPopularMovies = async (): Promise<void> => {
@@ -13,4 +12,3 @@ const getPopularMovies = async (): Promise<void> => {
 getPopularMovies()
 
 export default getPopularMovies
-
