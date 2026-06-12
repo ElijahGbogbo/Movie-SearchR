@@ -7,9 +7,8 @@ import {
   type SyntheticEvent,
 } from 'react'
 import '../css/Home.css'
-import {getPopularMovies} from '../services/movieService.ts'
-import type {Movie} from '../types/Movie.ts'
-
+import { getPopularMovies } from '../services/movieService.ts'
+import type { Movie } from '../types/Movie.ts'
 
 function Home(): JSX.Element {
   const [searchQuery, setSearchQuery] = useState<string>('')
@@ -29,14 +28,15 @@ function Home(): JSX.Element {
         } else {
           console.log(err)
           setError('Failed to load movies...')
-        }} finally {
+        }
+      } finally {
         setLoading(false)
       }
     }
 
     loadPopularMovies()
   }, [])
-  
+
   function runSearch(event: SyntheticEvent<HTMLFormElement>): void {
     event.preventDefault()
     alert(searchQuery)

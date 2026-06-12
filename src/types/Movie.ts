@@ -1,4 +1,3 @@
-
 export interface Movie {
   id: number
   title: string
@@ -7,10 +6,9 @@ export interface Movie {
 }
 
 export interface MovieServiceResponse {
-    results: Movie[]
+  results: Movie[]
 }
 
 export interface MovieCardProps {
   movie: Movie
 }
-
