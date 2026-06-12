@@ -1,16 +1,7 @@
 import type { JSX } from 'react'
 import '../css/MovieCard.css'
+import type {MovieCardProps} from '../types/Movie.ts'
 
-interface Movie {
-  title: string
-  release_date: string
-  url: string
-  id: number
-}
-
-interface MovieCardProps {
-  movie: Movie
-}
 
 function MovieCard({ movie }: MovieCardProps): JSX.Element {
   function favoriteClick(): void {
@@ -20,7 +11,7 @@ function MovieCard({ movie }: MovieCardProps): JSX.Element {
   return (
     <div className="movie-card">
       <div className="movie-poster">
-        <img src={movie.url} alt={movie.title} />
+        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
         <div className="movie-overlay">
           <button className="favorite-btn active" onClick={favoriteClick}>
             🤍
