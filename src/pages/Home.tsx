@@ -60,16 +60,17 @@ function Home(): JSX.Element {
           Search
         </button>
       </form>
-      <div className="movies-grid">
+
+      {loading ? (<p>Loading movies...</p>) : (<div className="movies-grid">
         {moviesList.map(
           (movieElem: Movie) =>
             movieElem.title
               .toLowerCase()
               .startsWith(searchQuery.toLowerCase()) && (
-              <MovieCard movie={movieElem} key={movieElem.id} />
-            )
+              <MovieCard movie={movieElem} key={movieElem.id} />)
         )}
-      </div>
+      </div>)
+      }
     </div>
   )
 }
