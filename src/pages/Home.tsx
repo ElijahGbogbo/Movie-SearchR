@@ -48,8 +48,8 @@ function Home(): JSX.Element {
       setMoviesList(searchResult)
       setError(null)
     } catch (error) {
-      console.log(error);
-      setError("Failed to search movies...")
+      console.log(error)
+      setError('Failed to search movies...')
     } finally {
       setLoading(false)
     }
