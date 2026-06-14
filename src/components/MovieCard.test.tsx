@@ -8,7 +8,7 @@ test('renders movie title', () => {
         id: 1,
         title: 'Batman',
         release_date: '2019',
-        url: 'https://via.placeholder.com/300x450',
+        poster_path: 'https://via.placeholder.com/300x450',
       }}
     />
   )
