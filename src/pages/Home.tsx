@@ -37,7 +37,9 @@ function Home(): JSX.Element {
     loadPopularMovies()
   }, [])
 
-  async function runSearch(event: SyntheticEvent<HTMLFormElement>): Promise<void> {
+  async function runSearch(
+    event: SyntheticEvent<HTMLFormElement>
+  ): Promise<void> {
     event.preventDefault()
     if (!searchQuery.trim()) return
     if (loading) return
