@@ -7,7 +7,7 @@ import {
   type SyntheticEvent,
 } from 'react'
 import '../css/Home.css'
-import { getPopularMovies } from '../services/movieService.ts'
+import { getPopularMovies, searchForMovies } from '../services/movieService.ts'
 import type { Movie } from '../types/Movie.ts'
 
 function Home(): JSX.Element {
@@ -37,10 +37,22 @@ function Home(): JSX.Element {
     loadPopularMovies()
   }, [])
 
-  function runSearch(event: SyntheticEvent<HTMLFormElement>): void {
+  async function runSearch(event: SyntheticEvent<HTMLFormElement>): void {
     event.preventDefault()
-    alert(searchQuery)
-    setSearchQuery('*****')
+    if (!searchQuery.trim()) return
+    if (loading) return
+    setLoading(true)
+
+    try {
+      const searchResult = await searchForMovies(searchQuery)
+      setMoviesList(searchResult)
+      setError(null)
+    } catch (error) {
+      console.log(error);
+      setError("Failed to search movies...")
+    } finally {
+      setLoading(false)
+    }
   }
   function handleChange(event: ChangeEvent<HTMLInputElement>): void {
     setSearchQuery(event.target.value)
@@ -61,16 +73,22 @@ function Home(): JSX.Element {
         </button>
       </form>
 
-      {loading ? (<p>Loading movies...</p>) : (<div className="movies-grid">
-        {moviesList.map(
-          (movieElem: Movie) =>
-            movieElem.title
-              .toLowerCase()
-              .startsWith(searchQuery.toLowerCase()) && (
-              <MovieCard movie={movieElem} key={movieElem.id} />)
-        )}
-      </div>)
-      }
+      {error && <div className="error-message">{error}</div>}
+
+      {loading ? (
+        <div className="loading">Loading movies...</div>
+      ) : (
+        <div className="movies-grid">
+          {moviesList.map(
+            (movieElem: Movie) =>
+              movieElem.title
+                .toLowerCase()
+                .startsWith(searchQuery.toLowerCase()) && (
+                <MovieCard movie={movieElem} key={movieElem.id} />
+              )
+          )}
+        </div>
+      )}
     </div>
   )
 }
