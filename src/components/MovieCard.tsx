@@ -1,7 +1,7 @@
 import type { JSX, SyntheticEvent } from 'react'
 import '../css/MovieCard.css'
 import type { MovieCardProps } from '../types/Movie.ts'
-import { useMovieContext } from '../contexts/MovieContext.tsx'
+import { useMovieContext } from '../contexts/useMovieContext.ts'
 
 function MovieCard({ movie }: MovieCardProps): JSX.Element {
   const { isFavorite, addToFavorites, removeFromFavorites } = useMovieContext()
