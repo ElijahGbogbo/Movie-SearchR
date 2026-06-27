@@ -1,10 +1,19 @@
-import type { JSX } from 'react'
+import type { JSX, SyntheticEvent } from 'react'
 import '../css/MovieCard.css'
 import type { MovieCardProps } from '../types/Movie.ts'
+import { useMovieContext } from "../contexts/MovieContext.tsx";
 
 function MovieCard({ movie }: MovieCardProps): JSX.Element {
-  function favoriteClick(): void {
-    alert('Clicked')
+  const {isFavorite, addToFavorites, removeFromFavorites} = useMovieContext()
+  const favorite = isFavorite(movie.id)
+
+  function favoriteClick(event: SyntheticEvent<HTMLButtonElement>): void {
+    event.preventDefault()
+    if (favorite) {
+      removeFromFavorites(movie.id)
+    } else {
+      addToFavorites(movie)
+    }
   }
 
   return (
@@ -15,8 +24,8 @@ function MovieCard({ movie }: MovieCardProps): JSX.Element {
           alt={movie.title}
         />
         <div className="movie-overlay">
-          <button className="favorite-btn active" onClick={favoriteClick}>
-            🤍
+          <button className= {`favorite-btn ${favorite ? 'active' : ''}`} onClick={favoriteClick}>
+            ♥
           </button>
         </div>
       </div>

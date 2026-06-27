@@ -83,11 +83,7 @@ function Home(): JSX.Element {
         <div className="movies-grid">
           {moviesList.map(
             (movieElem: Movie) =>
-              movieElem.title
-                .toLowerCase()
-                .startsWith(searchQuery.toLowerCase()) && (
                 <MovieCard movie={movieElem} key={movieElem.id} />
-              )
           )}
         </div>
       )}
