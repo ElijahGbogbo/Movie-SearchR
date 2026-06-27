@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { MovieContext } from "./MovieContext"
+import { useContext } from 'react'
+import { MovieContext } from './MovieContext'
 
 export const useMovieContext = () => {
   const context = useContext(MovieContext)
@@ -8,4 +8,3 @@ export const useMovieContext = () => {
   }
   return context
 }
-
