@@ -81,10 +81,9 @@ function Home(): JSX.Element {
         <div className="loading">Loading movies...</div>
       ) : (
         <div className="movies-grid">
-          {moviesList.map(
-            (movieElem: Movie) =>
-                <MovieCard movie={movieElem} key={movieElem.id} />
-          )}
+          {moviesList.map((movieElem: Movie) => (
+            <MovieCard movie={movieElem} key={movieElem.id} />
+          ))}
         </div>
       )}
     </div>

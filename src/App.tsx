@@ -4,7 +4,7 @@ import Home from './pages/Home'
 import NavBar from './components/NavBar'
 import Favorites from './pages/Favorites'
 import type { JSX } from 'react'
-import { MovieProvider } from "./contexts/MovieContext.tsx";
+import { MovieProvider } from './contexts/MovieContext.tsx'
 
 function App(): JSX.Element {
   return (

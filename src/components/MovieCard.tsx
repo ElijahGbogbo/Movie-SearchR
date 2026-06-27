@@ -1,10 +1,10 @@
 import type { JSX, SyntheticEvent } from 'react'
 import '../css/MovieCard.css'
 import type { MovieCardProps } from '../types/Movie.ts'
-import { useMovieContext } from "../contexts/MovieContext.tsx";
+import { useMovieContext } from '../contexts/MovieContext.tsx'
 
 function MovieCard({ movie }: MovieCardProps): JSX.Element {
-  const {isFavorite, addToFavorites, removeFromFavorites} = useMovieContext()
+  const { isFavorite, addToFavorites, removeFromFavorites } = useMovieContext()
   const favorite = isFavorite(movie.id)
 
   function favoriteClick(event: SyntheticEvent<HTMLButtonElement>): void {
@@ -24,7 +24,10 @@ function MovieCard({ movie }: MovieCardProps): JSX.Element {
           alt={movie.title}
         />
         <div className="movie-overlay">
-          <button className= {`favorite-btn ${favorite ? 'active' : ''}`} onClick={favoriteClick}>
+          <button
+            className={`favorite-btn ${favorite ? 'active' : ''}`}
+            onClick={favoriteClick}
+          >
             ♥
           </button>
         </div>
