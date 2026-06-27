@@ -1,9 +1,9 @@
-import { useState, useEffect, createContext } from 'react'
+import { useState, useEffect } from 'react'
 import type { MovieContextType } from '../types/MovieContextType.ts'
 import type { MovieProviderProps } from '../types/MovieContextType.ts'
 import type { Movie } from '../types/Movie.ts'
+import { MovieContext } from "./createMovieContext.ts";
 
-export const MovieContext = createContext<MovieContextType | null>(null)
 
 export const MovieProvider = ({ children }: MovieProviderProps) => {
   const [favorites, setFavorites] = useState<Movie[]>(() => {

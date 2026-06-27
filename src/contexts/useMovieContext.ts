@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { MovieContext } from './MovieContext'
+import { MovieContext } from './createMovieContext.ts'
 
 export const useMovieContext = () => {
   const context = useContext(MovieContext)
