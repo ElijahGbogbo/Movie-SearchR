@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react'
 import type { MovieContextType } from '../types/MovieContextType.ts'
 import type { MovieProviderProps } from '../types/MovieContextType.ts'
 import type { Movie } from '../types/Movie.ts'
-import { MovieContext } from "./createMovieContext.ts";
-
+import { MovieContext } from './createMovieContext.ts'
 
 export const MovieProvider = ({ children }: MovieProviderProps) => {
   const [favorites, setFavorites] = useState<Movie[]>(() => {
