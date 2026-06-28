@@ -1,6 +1,6 @@
 import type { JSX } from 'react'
 import '../css/Favorites.css'
-import { useMovieContext } from '../contexts/MovieContext.tsx'
+import { useMovieContext } from '../contexts/useMovieContext.ts'
 import MovieCard from '../components/MovieCard.tsx'
 import type { Movie } from '../types/Movie.ts'
 
