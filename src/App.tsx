@@ -4,10 +4,11 @@ import Home from './pages/Home'
 import NavBar from './components/NavBar'
 import Favorites from './pages/Favorites'
 import type { JSX } from 'react'
+import { MovieProvider } from './contexts/MovieContext.tsx'
 
 function App(): JSX.Element {
   return (
-    <>
+    <MovieProvider>
       <NavBar />
       <main className="main-content">
         <Routes>
@@ -15,7 +16,7 @@ function App(): JSX.Element {
           <Route path="/favorites" element={<Favorites />} />
         </Routes>
       </main>
-    </>
+    </MovieProvider>
   )
 }
 
